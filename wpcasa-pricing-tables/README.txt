@@ -1,5 +1,7 @@
 === WPCasa Pricing Tables ===
-Contributors: simonrimkus, wpsight
+Contributors: wpsight, simonrimkus
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZRR56U2VTPZAQ
+Tags: real estate, realestate, pricing, pricing tables, pricing plans, wpcasa
 Requires at least: 4.0
 Tested up to: 4.5
 Stable tag: 1.0.0
