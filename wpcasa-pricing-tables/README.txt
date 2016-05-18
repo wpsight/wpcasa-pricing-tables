@@ -3,8 +3,8 @@ Contributors: wpsight, simonrimkus
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZRR56U2VTPZAQ
 Tags: real estate, realestate, pricing, pricing tables, pricing plans, wpcasa
 Requires at least: 4.0
-Tested up to: 4.5
-Stable tag: 1.0.0
+Tested up to: 4.5.2
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -48,6 +48,11 @@ No, this is an add-on plugin for the WPCasa real estate framework and will not w
 4. Pricing table output (Bootstrap example)
 
 == Changelog ==
+
+= 1.0.1 =
+* Fixed shortcode to return markup (not echo)
+* Added shortcode to pricing table list
+* Fixed minor CSS issue
 
 = 1.0.0 =
 * Initial release

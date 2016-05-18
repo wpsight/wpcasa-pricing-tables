@@ -3,11 +3,11 @@
 Plugin Name: WPCasa Pricing Tables
 Plugin URI: https://wpcasa.com/
 Description: Add pricing tables to WPCasa using a shortcode.
-Version: 1.0.0
+Version: 1.0.1
 Author: WPSight
 Author URI: http://wpsight.com
 Requires at least: 4.0
-Tested up to: 4.5
+Tested up to: 4.5.2
 Text Domain: wpcasa-pricing-tables
 Domain Path: /languages
 
@@ -40,7 +40,7 @@ class WPSight_Pricing_Tables {
 
 		define( 'WPSIGHT_PRICING_TABLES_NAME', 'WPCasa Pricing Tables' );
 		define( 'WPSIGHT_PRICING_TABLES_DOMAIN', 'wpcasa-pricing-tables' );
-		define( 'WPSIGHT_PRICING_TABLES_VERSION', '1.0.0' );
+		define( 'WPSIGHT_PRICING_TABLES_VERSION', '1.0.1' );
 		define( 'WPSIGHT_PRICING_TABLES_PLUGIN_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 		define( 'WPSIGHT_PRICING_TABLES_PLUGIN_URL', untrailingslashit( plugins_url( basename( plugin_dir_path( __FILE__ ) ), basename( __FILE__ ) ) ) );
 		
@@ -51,7 +51,7 @@ class WPSight_Pricing_Tables {
 		
 		include( WPSIGHT_PRICING_TABLES_PLUGIN_DIR . '/includes/class-wpsight-pricing-tables-general.php' );
 		include( WPSIGHT_PRICING_TABLES_PLUGIN_DIR . '/includes/class-wpsight-pricing-tables-post-type.php' );
-		include( WPSIGHT_PRICING_TABLES_PLUGIN_DIR . '/includes/class-wpsight-pricint-tables-shortcode.php' );
+		include( WPSIGHT_PRICING_TABLES_PLUGIN_DIR . '/includes/class-wpsight-pricing-tables-shortcode.php' );
 
 		// Actions
 		
