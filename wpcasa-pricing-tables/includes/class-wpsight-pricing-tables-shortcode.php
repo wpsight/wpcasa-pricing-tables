@@ -52,12 +52,16 @@ class WPSight_Pricing_Tables_Shortcode {
 	        $args['id'] = isset( $pricing_tables[0]->ID ) ? $pricing_tables[0]->ID : false;
         }
 		
+		ob_start();
+
 		if( false !== $args['id'] && WPSight_Pricing_Tables_General::pricing_table_exists( $args['id'] ) ) {
-			wpsight_get_template( 'pricing-table.php', array( 'args' => $args ), WPSIGHT_PRICING_TABLES_PLUGIN_DIR . '/templates' );
-			return;
+		    wpsight_get_template( 'pricing-table.php', array( 'args' => $args ), WPSIGHT_PRICING_TABLES_PLUGIN_DIR . '/templates' );
+		    return ob_get_clean();
 		}
 		
 		wpsight_get_template( 'pricing-table-no.php', null, WPSIGHT_PRICING_TABLES_PLUGIN_DIR . '/templates' );
+
+		return ob_get_clean();
 
 	}
 
