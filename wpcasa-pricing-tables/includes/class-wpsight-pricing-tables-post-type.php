@@ -16,7 +16,9 @@ class WPSight_Pricing_Tables_Post_Type {
         add_filter( 'wpsight_meta_boxes', array( __CLASS__, 'meta_box_pricing_table' ) );
         add_filter( 'wpsight_meta_boxes', array( __CLASS__, 'meta_box_pricing_table_shortcode' ) );
         add_action( 'cmb2_after_post_form_pricing_table_general', array( __CLASS__, 'js_limit_group_repeat' ), 10, 2 );
-        add_filter( 'wpsight_meta_box_pricing_table_fields', array( __CLASS__, 'meta_box_pricing_table_packages' ) );
+        add_filter( 'wpsight_meta_box_pricing_table_fields', array( __CLASS__, 'meta_box_pricing_table_packages' ) );        
+        add_filter( 'manage_edit-pricing_table_columns', array( __CLASS__, 'columns' ) );
+		add_action( 'manage_pricing_table_posts_custom_column', array( __CLASS__, 'custom_columns' ), 2 );
     }
 
     /**
@@ -350,6 +352,62 @@ class WPSight_Pricing_Tables_Post_Type {
 		});
 		</script>
 		<?php
+	}
+	
+	/**
+	 *	columns()
+	 *	
+	 *	Define columns for manage_edit-pricing_table_columns filter.
+	 *	
+	 *	@access	public
+	 *	@param	mixed	$columns
+	 *	
+	 *	@since 1.0.1
+	 */
+	public static function columns( $columns ) {
+		
+		// Make sure we deal with array
+
+		if ( ! is_array( $columns ) )
+			$columns = array();
+		
+		// Unset some default columns
+		unset( $columns['date'], $columns['author'] );
+
+		// Define our custom column
+		$columns['shortcode'] = __( 'Shortcode', 'wpcasa-pricing-tables' );
+
+		return apply_filters( 'wpsight_admin_pricing_tables_columns', $columns );
+
+	}
+
+	/**
+	 *	custom_columns()
+	 *	
+	 *	Define custom columns for
+	 *	manage_pricing_table_posts_custom_column action.
+	 *	
+	 *	@access	public
+	 *	@param	mixed	$column
+	 *	@uses	wpsight_get_option()
+	 *	
+	 *	@since 1.0.1
+	 */
+	public static function custom_columns( $column ) {
+		global $post;
+		
+		$datef = wpsight_get_option( 'date_format', get_option( 'date_format' ) );
+
+		switch ( $column ) {
+
+			case 'shortcode':
+			
+				printf( '<input style="font-size:12px" type="text" onfocus="this.select();" readonly="readonly" value="[wpsight_pricing_table id=&quot;%s&quot; show_title=&quot;true&quot; show_subtitle=&quot;true&quot; show_note=&quot;true&quot; show_ribbon=&quot;true&quot;]" class="large-text code">', $post->ID );
+
+			break;
+
+		}
+		
 	}
     
 }
