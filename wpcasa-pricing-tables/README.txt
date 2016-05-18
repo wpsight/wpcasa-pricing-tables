@@ -14,6 +14,10 @@ Add pricing tables to WPCasa using a shortcode.
 
 When this plugin is activated a new post type for pricing tables will be created. Through a set of custom meta boxes you can add your pricing tables with different plans and use a shortcode to display the table on your WPCasa website.
 
+* Website: [wpcasa.com/downloads/wpcasa-pricing-tables](https://wpcasa.com/downloads/wpcasa-pricing-tables/)
+* Demo: [demo.wpcasa.com/pricing](http://demo.wpcasa.com/pricing/)
+* Documentation: [docs.wpcasa.com/article/wpcasa-pricing-tables](http://docs.wpcasa.com/article/wpcasa-pricing-tables/)
+
 > Please notice that this plugin is an add-on for [WPCasa](https://wordpress.org/plugins/wpcasa/) and will NOT work without the core plugin.
 
 WPCasa is a WordPress solution that provides an intuitive way to manage property listings and create first-class real estate websites.
