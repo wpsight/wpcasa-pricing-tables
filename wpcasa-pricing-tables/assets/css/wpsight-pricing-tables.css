@@ -157,14 +157,6 @@
 	clear: both;
 }
 
-.wpsight-pricing-table .pricing-table-note p {
-	margin-bottom: 40px;
-}
-
-.wpsight-pricing-table .pricing-plans + .pricing-table-note p {
-	margin-top: -40px;
-}
-
 .wpsight-pricing-table .text-muted {
 	opacity: .75;	
 }
