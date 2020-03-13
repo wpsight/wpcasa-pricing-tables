@@ -53,6 +53,9 @@ No, this is an add-on plugin for the WPCasa real estate framework and will not w
 
 == Changelog ==
 
+= 1.0.2 =
+* Updated: structure
+
 = 1.0.1 =
 * Fixed shortcode to return markup (not echo)
 * Added shortcode to pricing table list
