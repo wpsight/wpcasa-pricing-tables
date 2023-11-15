@@ -112,7 +112,7 @@ class WPSight_Pricing_Tables {
 		$suffix = SCRIPT_DEBUG ? '' : '.min';
 		
 		if( true == apply_filters( 'wpsight_pricing_tables_css', true ) )
-			wp_enqueue_style( 'wpsight-pricing-tables', WPSIGHT_PRICING_TABLES_PLUGIN_URL . '/assets/css/wpsight-pricing-tables' . $suffix . '.css' );
+			wp_enqueue_style( 'wpsight-pricing-tables', WPSIGHT_PRICING_TABLES_PLUGIN_URL . '/assets/css/wpsight-pricing-tables' . $suffix . '.css', NULL, WPSIGHT_PRICING_TABLES_VERSION );
 		
 	}
 	
