@@ -38,7 +38,7 @@ class WPSight_Pricing_Tables_Admin {
 		$post_type	= 'pricing_table';
 
 		if ( in_array( $screen->id, array( 'edit-' . $post_type, $post_type ) ) )
-			wp_enqueue_style( 'wpsight-pricing-tables-meta-boxes', WPSIGHT_PRICING_TABLES_PLUGIN_URL . '/assets/css/wpsight-pricing-tables-meta-boxes' . $suffix . '.css' );
+			wp_enqueue_style( 'wpsight-pricing-tables-meta-boxes', WPSIGHT_PRICING_TABLES_PLUGIN_URL . '/assets/css/wpsight-pricing-tables-meta-boxes' . $suffix . '.css', NULL, WPSIGHT_PRICING_TABLES_VERSION );
 
 	}
 
