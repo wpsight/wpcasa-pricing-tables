@@ -1,0 +1,236 @@
+/* Pricing Table
+================================================== */
+
+.wpsight-pricing-table .pricing-table-title {
+	margin-bottom: 30px;
+}
+
+.wpsight-pricing-table .pricing-table-title h2,
+.wpsight-pricing-table .pricing-table-title p {
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+.wpsight-pricing-table .pricing-table-title p {
+	margin-top: 10px;
+}
+
+.wpsight-pricing-table .pricing-plans {
+	margin-right: -40px;
+}
+
+.wpsight-pricing-table .pricing-plan-wrap {
+	float: left;
+	margin-bottom: 40px;
+}
+
+.wpsight-pricing-table .pricing-plan {
+    margin-right: 40px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+	-webkit-transition: all .1s ease-in-out;
+	-moz-transition:    all .1s ease-in-out;
+	-ms-transition:     all .1s ease-in-out;
+	-o-transition:      all .1s ease-in-out;
+	transition:         all .1s ease-in-out;
+}
+
+.wpsight-pricing-table .pricing-plan-inner {
+    border: 1px solid #ddd;
+	-webkit-transition: all .1s ease-in-out;
+	-moz-transition:    all .1s ease-in-out;
+	-ms-transition:     all .1s ease-in-out;
+	-o-transition:      all .1s ease-in-out;
+	transition:         all .1s ease-in-out;
+    z-index: 1;
+}
+
+.wpsight-pricing-table .pricing-plans.pricing-plans-1-items .pricing-plan-wrap {
+	width: 100%;
+}
+
+.wpsight-pricing-table .pricing-plans.pricing-plans-2-items .pricing-plan-wrap {
+	width: 50%;
+}
+
+.wpsight-pricing-table .pricing-plans.pricing-plans-3-items .pricing-plan-wrap {
+	width: 33%;
+}
+
+.wpsight-pricing-table .pricing-plans.pricing-plans-4-items .pricing-plan-wrap {
+	width: 25%;
+}
+
+@media screen and (max-width: 782px) {
+
+	.wpsight-pricing-table .pricing-plans.pricing-plans-2-items .pricing-plan-wrap,
+	.wpsight-pricing-table .pricing-plans.pricing-plans-3-items .pricing-plan-wrap,
+	.wpsight-pricing-table .pricing-plans.pricing-plans-4-items .pricing-plan-wrap {
+		float: none;
+		width: 100%;
+	}
+	
+	.wpsight-pricing-table .pricing-plans,
+	.wpsight-pricing-table .pricing-plan {
+		margin-right: 0;
+	}
+
+}
+
+.wpsight-pricing-table .pricing-plans.pricing-plans-1-items,
+.wpsight-pricing-table .pricing-plans-1-items .pricing-plan {
+	margin-right: 0;
+}
+
+.wpsight-pricing-table .pricing-plan:hover .pricing-plan-inner {
+	border-color: #bbb;
+}
+
+.wpsight-pricing-table .pricing-plan-name {
+    padding: 30px 0;
+}
+
+.wpsight-pricing-table .pricing-plan-name h2 {
+    font-weight: 400;
+    margin: 0;
+}
+
+.wpsight-pricing-table .pricing-plan-name h2 + p {
+    margin: 10px 15px 0;
+}
+
+.wpsight-pricing-table .pricing-plan-price {
+    background: #fafafa;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 15px 0;
+}
+
+.wpsight-pricing-table .pricing-plan-price strong {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.wpsight-pricing-table .prefered .pricing-plan-price {
+}
+
+.wpsight-pricing-table .prefered .pricing-plan-price strong {
+    color: #63B76C;
+}
+
+.wpsight-pricing-table .pricing-plan-details {
+    padding: 0 20px;
+}
+
+.wpsight-pricing-table .pricing-plan-details .plan-detail {
+    background: #fff;
+    padding: 15px;
+}
+
+.wpsight-pricing-table .pricing-plan-details .plan-detail + .plan-detail {
+    border-top: 1px solid #e5e5e5;
+}
+
+.wpsight-pricing-table .pricing-plan-details .plan-detail .yes {
+	color: #2c7;
+}
+
+.wpsight-pricing-table .pricing-plan-details .plan-detail .no {
+	color: #e43;
+}
+
+.wpsight-pricing-table .pricing-plan-action {
+    background: #fafafa;
+    -webkit-border-radius: 0 0 2px 2px;
+    -moz-border-radius: 0 0 2px 2px;
+    border-radius: 0 0 2px 2px;
+    border-top: 1px solid #e5e5e5;
+    padding: 20px;
+}
+
+.wpsight-pricing-table .pricing-plan-action a {
+	display: block;
+}
+
+.wpsight-pricing-table .pricing-table-note {
+	clear: both;
+}
+
+.wpsight-pricing-table .text-muted {
+	opacity: .75;	
+}
+
+/* Ribbon
+================================================== */
+
+.corner-ribbon {
+	background: #e43;
+	color: #fff;
+	left: -26px;
+	line-height: 40px;
+	position: absolute;
+	text-align: center;
+	top: -26px;
+	transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+	width: 200px;
+	z-index: 2;
+}
+
+/* Custom styles */
+
+.corner-ribbon.sticky {
+	position: fixed;
+}
+
+.corner-ribbon.shadow {
+	box-shadow: 0 0 3px rgba(0,0,0,.3);
+}
+
+/* Different positions */
+
+.corner-ribbon.top-left {
+	top: 20px;
+	left: -60px;
+	transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+}
+
+.corner-ribbon.top-right {
+	top: 20px;
+	right: -60px;
+	left: auto;
+	transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+}
+
+.corner-ribbon.bottom-left {
+	top: auto;
+	bottom: 20px;
+	left: -60px;
+	transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+}
+
+.corner-ribbon.bottom-right {
+	top: auto;
+	right: -60px;
+	bottom: 20px;
+	left: auto;
+	transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+}
+
+/* Colors */
+
+.corner-ribbon.white{background: #f4f4f4; color: #555;}
+.corner-ribbon.black{background: #333;}
+.corner-ribbon.grey{background: #999;}
+.corner-ribbon.blue{background: #39d;}
+.corner-ribbon.green{background: #2c7;}
+.corner-ribbon.turquoise{background: #1b9;}
+.corner-ribbon.purple{background: #95b;}
+.corner-ribbon.red{background: #e43;}
+.corner-ribbon.orange{background: #e82;}
+.corner-ribbon.yellow{background: #ec0;}
