@@ -113,6 +113,7 @@ class WPSight_Pricing_Tables_Post_Type {
 						'id'                => 'pricing_plan_price',
 						'type'              => 'text_money',
 						'before_field'      => wpsight_get_currency(),
+						// Translators: %s is price
 						'description'       => sprintf( __( 'In %s.', 'wpcasa-pricing-tables' ), wpsight_get_currency_abbr() ),
 						'sanitization_cb'   => false,
 						'attributes'		=> array(
@@ -318,7 +319,7 @@ class WPSight_Pricing_Tables_Post_Type {
 		<script type="text/javascript">
 		jQuery(document).ready(function($){
 			// Only allow 3 groups
-			var limit            = <?php echo $limit; ?>;
+			var limit            = <?php echo esc_html( $limit );  ?>;
 			var fieldGroupId     = 'pricing_plans';
 			var $fieldGroupTable = $( document.getElementById( fieldGroupId + '_repeat' ) );
 	
@@ -402,7 +403,7 @@ class WPSight_Pricing_Tables_Post_Type {
 
 			case 'shortcode':
 			
-				printf( '<input style="font-size:12px" type="text" onfocus="this.select();" readonly="readonly" value="[wpsight_pricing_table id=&quot;%s&quot; show_title=&quot;true&quot; show_subtitle=&quot;true&quot; show_note=&quot;true&quot; show_ribbon=&quot;true&quot;]" class="large-text code">', $post->ID );
+				printf( '<input style="font-size:12px" type="text" onfocus="this.select();" readonly="readonly" value="[wpsight_pricing_table id=&quot;%s&quot; show_title=&quot;true&quot; show_subtitle=&quot;true&quot; show_note=&quot;true&quot; show_ribbon=&quot;true&quot;]" class="large-text code">', esc_html( $post->ID ) );
 
 			break;
 
