@@ -1,30 +1,30 @@
 === WPCasa Pricing Tables ===
-Contributors: wpsight, simonrimkus
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZRR56U2VTPZAQ
-Tags: real estate, realestate, pricing, pricing tables, pricing plans, wpcasa
+Contributors: wpsight, kybernetikservices, mrinal013, simonrimkus
+Donate link: https://www.paypal.com/donate/?hosted_button_id=SYJNVSP2BKTQ4
+Tags: wpcasa, real estate, realestate, pricing, pricing tables, pricing plans
 Requires at least: 4.0
-Tested up to: 4.6
-Stable tag: 1.0.1
+Tested up to: 6.4
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Add pricing tables to WPCasa using a shortcode.
-
+https://wpcasa.com/downloads/wpcasa-pricing-tables/
 == Description ==
 
 When this plugin is activated a new post type for pricing tables will be created. Through a set of custom meta boxes you can add your pricing tables with different plans and use a shortcode to display the table on your WPCasa website.
 
 * Website: [wpcasa.com/downloads/wpcasa-pricing-tables](https://wpcasa.com/downloads/wpcasa-pricing-tables/)
-* Demo: [demo.wpcasa.com/pricing](http://demo.wpcasa.com/pricing/)
-* Documentation: [docs.wpcasa.com/article/wpcasa-pricing-tables](http://docs.wpcasa.com/article/wpcasa-pricing-tables/)
+* Demo: [demo.wpcasa.com/pricing](https://demo.wpcasa.com/pricing/)
+* Documentation: [docs.wpcasa.com/article/wpcasa-pricing-tables](https://docs.wpcasa.com/article/wpcasa-pricing-tables/)
 
 > Please notice that this plugin is an add-on for [WPCasa](https://wordpress.org/plugins/wpcasa/) and will NOT work without the core plugin.
 
 WPCasa is a WordPress solution that provides an intuitive way to manage property listings and create first-class real estate websites.
 
 * Website: [wpcasa.com](https://wpcasa.com)
-* Demo: [demo.wpcasa.com](http://demo.wpcasa.com)
-* Documentation: [docs.wpcasa.com](http://docs.wpcasa.com)
+* Demo: [demo.wpcasa.com](https://demo.wpcasa.com)
+* Documentation: [docs.wpcasa.com](https://docs.wpcasa.com)
 
 == Installation ==
 
@@ -52,6 +52,9 @@ No, this is an add-on plugin for the WPCasa real estate framework and will not w
 4. Pricing table output (Bootstrap example)
 
 == Changelog ==
+
+= 1.0.2 =
+* Fixed guideline violation
 
 = 1.0.1 =
 * Fixed shortcode to return markup (not echo)
