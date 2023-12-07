@@ -1,19 +1,17 @@
 <?php
 /*
 Plugin Name: WPCasa Pricing Tables
-Plugin URI: https://wpcasa.com/
+Plugin URI: https://wpcasa.com/downloads/wpcasa-pricing-tables/
 Description: Add pricing tables to WPCasa using a shortcode.
 Version: 1.0.2
 Author: WPSight
-Author URI: http://wpsight.com
+Author URI: https://wpcasa.com
 Requires at least: 4.0
-Tested up to: 5.3.2
+Tested up to: 4.6
 Text Domain: wpcasa-pricing-tables
 Domain Path: /languages
-
-	Copyright: 2015 Simon Rimkus
-	License: GNU General Public License v2.0 or later
-	License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License: GNU General Public License v2.0 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
 // Exit if accessed directly
@@ -47,6 +45,8 @@ class WPSight_Pricing_Tables {
 		if ( is_admin() ){
 			include( WPSIGHT_PRICING_TABLES_PLUGIN_DIR . '/includes/admin/class-wpsight-pricing-tables-admin.php' );
 			$this->admin = new WPSight_Pricing_Tables_Admin();
+
+            add_action( 'admin_enqueue_scripts', array( $this, 'backend_scripts' ) );
 		}
 		
 		include( WPSIGHT_PRICING_TABLES_PLUGIN_DIR . '/includes/class-wpsight-pricing-tables-general.php' );
@@ -54,10 +54,9 @@ class WPSight_Pricing_Tables {
 		include( WPSIGHT_PRICING_TABLES_PLUGIN_DIR . '/includes/class-wpsight-pricing-tables-shortcode.php' );
 
 		// Actions
-		
 		add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'frontend_scripts' ) );
-		
+
 	}
 
 	/**
@@ -106,16 +105,45 @@ class WPSight_Pricing_Tables {
 	 *
 	 *	@since 1.0.0
 	 */
-	public function frontend_scripts() {
+	public function frontend_scripts(): void {
 		
 		// Script debugging?
-		$suffix = SCRIPT_DEBUG ? '' : '.min';
-		
-		if( true == apply_filters( 'wpsight_pricing_tables_css', true ) )
-			wp_enqueue_style( 'wpsight-pricing-tables', WPSIGHT_PRICING_TABLES_PLUGIN_URL . '/assets/css/wpsight-pricing-tables' . $suffix . '.css' );
+		$suffix  = SCRIPT_DEBUG ? '' : '.min';
+        $version = SCRIPT_DEBUG ? rand( 100,1000 ) : WPSIGHT_PRICING_TABLES_VERSION;
+
+        if( apply_filters('wpsight_pricing_tables_css', true) )
+			wp_enqueue_style( 'wpsight-pricing-tables', WPSIGHT_PRICING_TABLES_PLUGIN_URL . '/assets/css/wpsight-pricing-tables' . $suffix . '.css', NULL, $version );
 		
 	}
-	
+
+
+    /**
+     *	backend_scripts()
+     *
+     *	Register and enqueue scripts in the WordPress admin
+     *
+     *	@uses	wp_enqueue_style()
+     *
+     *	@since 1.0.2
+     */
+    public function backend_scripts( $hook ): void {
+
+        // Get current screen object
+        $screen = get_current_screen();
+
+        if ( 'post.php' != $hook || 'pricing_table' != $screen->id ) {
+            return;
+        }
+
+        // Script debugging?
+        $suffix  = SCRIPT_DEBUG ? '' : '.min';
+        $version = SCRIPT_DEBUG ? rand( 100,1000 ) : WPSIGHT_PRICING_TABLES_VERSION;
+
+        wp_enqueue_script( 'wpsight-pricing-tables-admin', WPSIGHT_PRICING_TABLES_PLUGIN_URL . '/assets/js/admin/wpsight-pricing-tables-admin' . $suffix . '.js', array( 'jquery-core' ), $version );
+        wp_add_inline_script( 'wpsight-pricing-tables-admin', 'var limit = ' . apply_filters( 'wpsight_pricing_table_limit', 4 ), 'before' );
+
+    }
+
 }
 
 // Initialize plugin on wpsight_init

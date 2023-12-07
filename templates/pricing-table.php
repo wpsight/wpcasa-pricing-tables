@@ -17,7 +17,7 @@ $pricing_plans = get_post_meta( $pricing_table->ID, 'pricing_plans', true ); ?>
 	<?php if( $args['show_title'] || $args['show_subtitle'] ) : ?>
 	<div class="pricing-table-title">
 		<?php if( $args['show_title'] ) : ?>
-		<h2><?php echo strip_tags( $pricing_table_title ); ?></h2>
+		<h2><?php echo esc_html( wp_strip_all_tags( $pricing_table_title ) ); ?></h2>
 		<?php endif; ?>
 		<?php if( $args['show_subtitle'] ) : ?>
 		<p><?php echo wp_kses_post( $pricing_table_subtitle ); ?></p>
@@ -31,14 +31,14 @@ $pricing_plans = get_post_meta( $pricing_table->ID, 'pricing_plans', true ); ?>
 		
 			<?php foreach( (array) $pricing_plans as $pricing_plan ) : ?>
 			
-				<div id="pricing-plan-wrap-<?php echo sanitize_title( $pricing_plan['pricing_plan_title'] ); ?>" class="pricing-plan-wrap">
+				<div id="pricing-plan-wrap-<?php echo esc_attr( sanitize_title( $pricing_plan['pricing_plan_title'] ) ); ?>" class="pricing-plan-wrap">
 				
-					<div id="pricing-plan-<?php echo sanitize_title( $pricing_plan['pricing_plan_title'] ); ?>" class="pricing-plan">
+					<div id="pricing-plan-<?php echo esc_attr( sanitize_title( $pricing_plan['pricing_plan_title'] ) ); ?>" class="pricing-plan">
 						<div class="pricing-plan-inner">
 					
 						<?php if( ! empty( $pricing_plan['pricing_plan_title'] ) ) : ?>
 						<div class="pricing-plan-name">
-							<h2><?php echo strip_tags( $pricing_plan['pricing_plan_title'] ); ?></h2>
+							<h2><?php echo esc_html( wp_strip_all_tags( $pricing_plan['pricing_plan_title'] ) ); ?></h2>
 							<?php if( ! empty( $pricing_plan['pricing_plan_subtitle'] ) ) : ?>
 							<p class="text-muted"><?php echo wp_kses_post( $pricing_plan['pricing_plan_subtitle'] ); ?></p>
 							<?php endif; ?>
@@ -47,9 +47,14 @@ $pricing_plans = get_post_meta( $pricing_table->ID, 'pricing_plans', true ); ?>
 						
 						<?php if( ! empty( $pricing_plan['pricing_plan_price'] ) ) : ?>
 						<div class="pricing-plan-price">
-							<strong><?php echo WPSight_Pricing_Tables_General::format_price( $pricing_plan['pricing_plan_price'] ); ?></strong>
+							<strong>
+								<?php
+								$plan_price = WPSight_Pricing_Tables_General::format_price( $pricing_plan['pricing_plan_price'] );
+								echo esc_html( $plan_price ); 
+								?>
+							</strong>
 							<?php if( ! empty( $pricing_plan['pricing_plan_duration'] ) ) : ?>
-							<?php echo strip_tags( $pricing_plan['pricing_plan_duration'] ); ?>
+							<?php echo esc_html( wp_strip_all_tags( $pricing_plan['pricing_plan_duration'] ) ); ?>
 							<?php endif; ?>
 						</div>
 						<?php endif; ?>
@@ -61,7 +66,7 @@ $pricing_plans = get_post_meta( $pricing_table->ID, 'pricing_plans', true ); ?>
 							<div class="pricing-plan-details">
 							
 								<?php foreach( $plan_details as $plan_detail ) : ?>
-									<div class="plan-detail"><?php echo strip_tags( $plan_detail, '<span><b><strong><i><em><small>' ); ?></div>
+									<div class="plan-detail"><?php echo wp_kses( $plan_detail, array( 'span', 'b', 'strong', 'i', 'em', 'small' ) ); ?></div>
 								<?php endforeach; ?>
 					
 							</div>
@@ -69,23 +74,23 @@ $pricing_plans = get_post_meta( $pricing_table->ID, 'pricing_plans', true ); ?>
 						<?php endif; ?>
 						
 						<?php $package_payment_id = wpsight_get_option( 'dashboard_payment', true ); ?>
-						<?php $button_text = ! empty( $pricing_plan['pricing_plan_button_text'] ) ? strip_tags( $pricing_plan['pricing_plan_button_text'] ) : __( 'Choose Plan', 'wpcasa-pricing-tables' ); ?>
+						<?php $button_text = ! empty( $pricing_plan['pricing_plan_button_text'] ) ? wp_strip_all_tags( $pricing_plan['pricing_plan_button_text'] ) : __( 'Choose Plan', 'wpcasa-pricing-tables' ); ?>
 						
 						<div class="pricing-plan-action">
 						
 							<?php if( ! empty( $pricing_plan['pricing_plan_package'] ) && $package_payment_id && class_exists( 'WPSight_Dashboard_Packages' ) ) : ?>
 							
-								<form method="post" action="<?php echo get_permalink( $package_payment_id ); ?>">
+								<form method="post" action="<?php echo esc_attr( get_permalink( $package_payment_id ) ); ?>">
 								    <input type="hidden" name="payment_type" value="package">
 								    <input type="hidden" name="object_id" value="<?php echo esc_attr( $pricing_plan['pricing_plan_package'] ); ?>">
 								
-								    <button type="submit" class="btn btn-primary btn-block btn-lg"><?php echo strip_tags( $button_text ); ?></button>
+								    <button type="submit" class="btn btn-primary btn-block btn-lg"><?php echo esc_html( wp_strip_all_tags( $button_text ) ); ?></button>
 								</form>
 							
 							<?php else : ?>
 							
 								<?php if( ! empty( $pricing_plan['pricing_plan_button_url'] ) ) : ?>
-									<a href="<?php echo esc_url( $pricing_plan['pricing_plan_button_url'] ); ?>" class="btn btn-primary btn-block btn-lg" role="button"><?php echo strip_tags( $button_text ); ?></a>
+									<a href="<?php echo esc_url( $pricing_plan['pricing_plan_button_url'] ); ?>" class="btn btn-primary btn-block btn-lg" role="button"><?php echo esc_html( wp_strip_all_tags( $button_text ) ); ?></a>
 								<?php endif; ?>
 							
 							<?php endif; ?>
@@ -93,7 +98,7 @@ $pricing_plans = get_post_meta( $pricing_table->ID, 'pricing_plans', true ); ?>
 						</div><!-- .pricing-plan-action -->
 						
 						<?php if( ! empty( $pricing_plan['pricing_plan_ribbon'] ) && $args['show_ribbon'] ) : ?>
-						<div class="corner-ribbon top-right blue shadow"><?php echo strip_tags( $pricing_plan['pricing_plan_ribbon'] ); ?></div>
+						<div class="corner-ribbon top-right blue shadow"><?php echo esc_html( wp_strip_all_tags( $pricing_plan['pricing_plan_ribbon'] ) ); ?></div>
 						<?php endif; ?>
 					
 						</div>
@@ -108,7 +113,7 @@ $pricing_plans = get_post_meta( $pricing_table->ID, 'pricing_plans', true ); ?>
 	<?php else : ?>
 	
 		<div class="wpsight-alert alert alert-error">
-			<?php _e( 'This pricing table does not have any plans yet.', 'wpcasa-pricing-tables' ); ?>
+			<?php echo esc_html__( 'This pricing table does not have any plans yet.', 'wpcasa-pricing-tables' ); ?>
 		</div>
 	
 	<?php endif; ?>

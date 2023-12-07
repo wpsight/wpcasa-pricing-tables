@@ -15,8 +15,7 @@ class WPSight_Pricing_Tables_Post_Type {
         add_action( 'init', array( __CLASS__, 'definition' ) );
         add_filter( 'wpsight_meta_boxes', array( __CLASS__, 'meta_box_pricing_table' ) );
         add_filter( 'wpsight_meta_boxes', array( __CLASS__, 'meta_box_pricing_table_shortcode' ) );
-        add_action( 'cmb2_after_post_form_pricing_table_general', array( __CLASS__, 'js_limit_group_repeat' ), 10, 2 );
-        add_filter( 'wpsight_meta_box_pricing_table_fields', array( __CLASS__, 'meta_box_pricing_table_packages' ) );        
+        add_filter( 'wpsight_meta_box_pricing_table_fields', array( __CLASS__, 'meta_box_pricing_table_packages' ) );
         add_filter( 'manage_edit-pricing_table_columns', array( __CLASS__, 'columns' ) );
 		add_action( 'manage_pricing_table_posts_custom_column', array( __CLASS__, 'custom_columns' ), 2 );
     }
@@ -113,6 +112,7 @@ class WPSight_Pricing_Tables_Post_Type {
 						'id'                => 'pricing_plan_price',
 						'type'              => 'text_money',
 						'before_field'      => wpsight_get_currency(),
+						// Translators: %s is price
 						'description'       => sprintf( __( 'In %s.', 'wpcasa-pricing-tables' ), wpsight_get_currency_abbr() ),
 						'sanitization_cb'   => false,
 						'attributes'		=> array(
@@ -298,62 +298,7 @@ class WPSight_Pricing_Tables_Post_Type {
 	public static function show_shortcode( $field_args, $field ) {
 		return sprintf( '[wpsight_pricing_table id="%s" show_title="true" show_subtitle="true" show_note="true" show_ribbon="true"]', $field->object_id );
 	}
-    
-    /**
-	 *	js_limit_group_repeat()
-	 *
-	 *	Limit the pricing plan group field number.
-	 *	
-	 *	@access	public
-	 *	@param	$post_id	integer
-	 *	@param	$cmb		object
-	 *
-	 *	@since	1.1.0
-	 */
-    public static function js_limit_group_repeat( $post_id, $cmb ) {
-		// Grab the custom attribute to determine the limit
-		$limit = absint( $cmb->prop( 'group_limit' ) );
-		$limit = $limit ? $limit : 0;
-		?>
-		<script type="text/javascript">
-		jQuery(document).ready(function($){
-			// Only allow 3 groups
-			var limit            = <?php echo $limit; ?>;
-			var fieldGroupId     = 'pricing_plans';
-			var $fieldGroupTable = $( document.getElementById( fieldGroupId + '_repeat' ) );
-	
-			var countRows = function() {
-				return $fieldGroupTable.find( '> .cmb-row.cmb-repeatable-grouping' ).length;
-			};
-	
-			var disableAdder = function() {
-				$fieldGroupTable.find('.cmb-add-group-row.button').prop( 'disabled', true );
-			};
-	
-			var enableAdder = function() {
-				$fieldGroupTable.find('.cmb-add-group-row.button').prop( 'disabled', false );
-			};
-			
-			if ( countRows() >= limit ) {
-				disableAdder();
-			}
-	
-			$fieldGroupTable
-				.on( 'cmb2_add_row', function() {
-					if ( countRows() >= limit ) {
-						disableAdder();
-					}
-				})
-				.on( 'cmb2_remove_row', function() {
-					if ( countRows() < limit ) {
-						enableAdder();
-					}
-				});
-		});
-		</script>
-		<?php
-	}
-	
+
 	/**
 	 *	columns()
 	 *	
@@ -402,7 +347,7 @@ class WPSight_Pricing_Tables_Post_Type {
 
 			case 'shortcode':
 			
-				printf( '<input style="font-size:12px" type="text" onfocus="this.select();" readonly="readonly" value="[wpsight_pricing_table id=&quot;%s&quot; show_title=&quot;true&quot; show_subtitle=&quot;true&quot; show_note=&quot;true&quot; show_ribbon=&quot;true&quot;]" class="large-text code">', $post->ID );
+				printf( '<input style="font-size:12px" type="text" onfocus="this.select();" readonly="readonly" value="[wpsight_pricing_table id=&quot;%s&quot; show_title=&quot;true&quot; show_subtitle=&quot;true&quot; show_note=&quot;true&quot; show_ribbon=&quot;true&quot;]" class="large-text code">', esc_html( $post->ID ) );
 
 			break;
 

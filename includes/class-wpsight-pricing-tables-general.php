@@ -82,9 +82,9 @@ class WPSight_Pricing_Tables_General {
 	 *	format_price()
 	 *
      *	Get a specific (active) pricing_table by ID.
-     *	
+     *
      *	@access	public
-     *	@param	interger	$pricing_table_id
+     *	@param	integer $price
      *	@uses	get_post()
      *	@return	object
      *
