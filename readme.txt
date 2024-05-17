@@ -1,9 +1,9 @@
 === WPCasa Pricing Tables ===
-Contributors: wpsight, kybernetikservices, mrinal013, simonrimkus
+Contributors: wpsight, kybernetikservices, mrinal013
 Donate link: https://www.paypal.com/donate/?hosted_button_id=SYJNVSP2BKTQ4
 Tags: wpcasa, real estate, realestate, pricing, pricing tables, pricing plans
-Requires at least: 4.0
-Tested up to: 6.4
+Requires at least: 6.2
+Tested up to: 6.5
 Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -25,6 +25,15 @@ WPCasa is a WordPress solution that provides an intuitive way to manage property
 * Website: [wpcasa.com](https://wpcasa.com)
 * Demo: [demo.wpcasa.com](https://demo.wpcasa.com)
 * Documentation: [docs.wpcasa.com](https://docs.wpcasa.com)
+
+== Contributors ==
+This is a list of contributors to WPCasa Polylang.
+Many thanks to all of them for contributing and making WPCasa Polylang even better.
+
+[Kybernetik Services](https://www.kybernetik-services.com/?utm_source=wordpress_org&utm_medium=plugin&utm_campaign=wpcasa&utm_content=readme)
+[Simon Rimkus](https://github.com/simonrimkus)
+[Mrinal Haque](https://profiles.wordpress.org/mrinal013/)
+[codestylist](https://wordpress.org/support/users/codestylist/)
 
 == Installation ==
 

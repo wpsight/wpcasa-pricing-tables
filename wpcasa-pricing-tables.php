@@ -1,18 +1,27 @@
 <?php
-/*
-Plugin Name: WPCasa Pricing Tables
-Plugin URI: https://wpcasa.com/downloads/wpcasa-pricing-tables/
-Description: Add pricing tables to WPCasa using a shortcode.
-Version: 1.0.2
-Author: WPSight
-Author URI: https://wpcasa.com
-Requires at least: 4.0
-Tested up to: 4.6
-Text Domain: wpcasa-pricing-tables
-Domain Path: /languages
-License: GNU General Public License v2.0 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-*/
+/**
+ * WPCasa Pricing Tables
+ *
+ * @package           WPCasaPricingTables
+ * @author            WPSight
+ * @copyright         2024 Kybernetik Services GmbH
+ * @license           GPL-2.0-or-later
+ *
+ * @wordpress-plugin
+ * Plugin Name:       WPCasa Pricing Tables
+ * Plugin URI:        https://wpcasa.com/downloads/wpcasa-pricing-tables/
+ * Description:       Add pricing tables to WPCasa using a shortcode.
+ * Version:           1.0.2
+ * Requires at least: 6.2
+ * Requires PHP:      7.2
+ * Requires Plugins:  wpcasa
+ * Author:            WPSight
+ * Author URI:        https://wpcasa.com
+ * Text Domain:       wpcasa-pricing-tables
+ * Domain Path:       /languages
+ * License:           GPL v2 or later
+ * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ */
 
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) )
