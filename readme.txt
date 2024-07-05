@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/donate/?hosted_button_id=SYJNVSP2BKTQ4
 Tags: wpcasa, real estate, realestate, pricing, pricing tables, pricing plans
 Requires at least: 6.2
 Tested up to: 6.6
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -47,6 +47,11 @@ Then type "WPCasa Pricing Tables" in the search field and click _Install Now_ on
 
 If you prefer to install the plugin manually, you need to download it to your local computer and upload the unzipped plugin folder to the `/wp-content/plugins/` directory of your WordPress installation. Then activate the plugin on _WP-Admin > Plugins_.
 
+= Languages =
+
+WPCasa Pricing Tables supports language files hosted by WordPress.org.
+Your language is missing? Please be part of the community and help to translate WPCasa Pricing Tables on [GlotPress](https://translate.wordpress.org/projects/wp-plugins/wpcasa-pricing-tables/). Thank you!
+
 == Frequently Asked Questions ==
 
 = Will this plugin work without WPCasa? =
@@ -61,6 +66,10 @@ No, this is an add-on plugin for the WPCasa real estate framework and will not w
 4. Pricing table output (Bootstrap example)
 
 == Changelog ==
+
+= 1.0.2 =
+* Fixed sometimes pricing is showing wrong
+* Added support for translation hosted on WordPress
 
 = 1.0.2 =
 * Fixed guideline violation
