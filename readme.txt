@@ -3,7 +3,7 @@ Contributors: wpsight, kybernetikservices, mrinal013
 Donate link: https://www.paypal.com/donate/?hosted_button_id=SYJNVSP2BKTQ4
 Tags: wpcasa, real estate, realestate, pricing, pricing tables, pricing plans
 Requires at least: 6.2
-Tested up to: 6.5
+Tested up to: 6.6
 Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -12,7 +12,7 @@ Add pricing tables to WPCasa using a shortcode.
 https://wpcasa.com/downloads/wpcasa-pricing-tables/
 == Description ==
 
-When this plugin is activated a new post type for pricing tables will be created. Through a set of custom meta boxes you can add your pricing tables with different plans and use a shortcode to display the table on your WPCasa website.
+When this plugin is activated, a new post type for pricing tables will be created. Through a set of custom meta boxes you can add your pricing tables with different plans and use a shortcode to display the table on your WPCasa website.
 
 * Website: [wpcasa.com/downloads/wpcasa-pricing-tables](https://wpcasa.com/downloads/wpcasa-pricing-tables/)
 * Demo: [demo.wpcasa.com/pricing](https://demo.wpcasa.com/pricing/)
