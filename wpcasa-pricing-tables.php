@@ -1,18 +1,26 @@
 <?php
-/*
-Plugin Name: WPCasa Pricing Tables
-Plugin URI: https://wpcasa.com/downloads/wpcasa-pricing-tables/
-Description: Add pricing tables to WPCasa using a shortcode.
-Version: 1.0.2
-Author: WPSight
-Author URI: https://wpcasa.com
-Requires at least: 4.0
-Tested up to: 4.6
-Text Domain: wpcasa-pricing-tables
-Domain Path: /languages
-License: GNU General Public License v2.0 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-*/
+/**
+ * WPCasa Pricing Tables
+ *
+ * @package           WPCasaPricingTables
+ * @author            WPSight
+ * @copyright         2024 Kybernetik Services GmbH
+ * @license           GPL-2.0-or-later
+ *
+ * @wordpress-plugin
+ * Plugin Name:       WPCasa Pricing Tables
+ * Plugin URI:        https://wpcasa.com/downloads/wpcasa-pricing-tables/
+ * Description:       Add pricing tables to WPCasa using a shortcode.
+ * Version:           1.0.3
+ * Requires at least: 6.2
+ * Requires PHP:      7.2
+ * Requires Plugins:  wpcasa
+ * Author:            WPSight
+ * Author URI:        https://wpcasa.com
+ * Text Domain:       wpcasa-pricing-tables
+ * License:           GPL v2 or later
+ * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ */
 
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) )
@@ -38,7 +46,7 @@ class WPSight_Pricing_Tables {
 
 		define( 'WPSIGHT_PRICING_TABLES_NAME', 'WPCasa Pricing Tables' );
 		define( 'WPSIGHT_PRICING_TABLES_DOMAIN', 'wpcasa-pricing-tables' );
-		define( 'WPSIGHT_PRICING_TABLES_VERSION', '1.0.2' );
+		define( 'WPSIGHT_PRICING_TABLES_VERSION', '1.0.3' );
 		define( 'WPSIGHT_PRICING_TABLES_PLUGIN_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 		define( 'WPSIGHT_PRICING_TABLES_PLUGIN_URL', untrailingslashit( plugins_url( basename( plugin_dir_path( __FILE__ ) ), basename( __FILE__ ) ) ) );
 		
@@ -54,7 +62,6 @@ class WPSight_Pricing_Tables {
 		include( WPSIGHT_PRICING_TABLES_PLUGIN_DIR . '/includes/class-wpsight-pricing-tables-shortcode.php' );
 
 		// Actions
-		add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'frontend_scripts' ) );
 
 	}
@@ -79,21 +86,6 @@ class WPSight_Pricing_Tables {
 
 		return $wpsight->pricing_tables;
 
-	}
-
-	/**
-	 *	load_plugin_textdomain()
-	 *	
-	 *	Set up localization for this plugin
-	 *	loading the text domain.
-	 *	
-	 *	@uses	load_plugin_textdomain()
-	 *	@uses	plugin_basename()
-	 *
-	 *	@since 1.0.0
-	 */
-	public function load_plugin_textdomain() {
-		load_plugin_textdomain( 'wpcasa-pricing-tables', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 	}
 
 	/**

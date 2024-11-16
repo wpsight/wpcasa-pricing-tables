@@ -50,7 +50,7 @@ $pricing_plans = get_post_meta( $pricing_table->ID, 'pricing_plans', true ); ?>
 							<strong>
 								<?php
 								$plan_price = WPSight_Pricing_Tables_General::format_price( $pricing_plan['pricing_plan_price'] );
-								echo esc_html( $plan_price ); 
+								echo wp_kses_post( $plan_price );
 								?>
 							</strong>
 							<?php if( ! empty( $pricing_plan['pricing_plan_duration'] ) ) : ?>
