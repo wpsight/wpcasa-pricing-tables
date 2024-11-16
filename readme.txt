@@ -67,7 +67,7 @@ No, this is an add-on plugin for the WPCasa real estate framework and will not w
 
 == Changelog ==
 
-= 1.0.2 =
+= 1.0.3 =
 * Fixed sometimes pricing is showing wrong
 * Added support for translation hosted on WordPress
 
