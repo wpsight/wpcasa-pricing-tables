@@ -27,8 +27,8 @@ WPCasa is a WordPress solution that provides an intuitive way to manage property
 * Documentation: [docs.wpcasa.com](https://docs.wpcasa.com)
 
 == Contributors ==
-This is a list of contributors to WPCasa Polylang.
-Many thanks to all of them for contributing and making WPCasa Polylang even better.
+This is a list of contributors to WPCasa Pricing Table.
+Many thanks to all of them for contributing and making WPCasa Pricing Table even better.
 
 [Kybernetik Services](https://www.kybernetik-services.com/?utm_source=wordpress_org&utm_medium=plugin&utm_campaign=wpcasa&utm_content=readme)
 [Simon Rimkus](https://github.com/simonrimkus)
